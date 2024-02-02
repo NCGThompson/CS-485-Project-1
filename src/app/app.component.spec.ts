@@ -20,10 +20,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('Project-1');
   });
 
-  it('should render title', () => {
+  it('should render tab', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, Project-1');
+    expect(compiled.querySelector('div.tab > button')?.textContent).toContain('Current Data');
   });
 });
