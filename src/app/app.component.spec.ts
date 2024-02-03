@@ -28,4 +28,18 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.mdc-tab__text-label')?.textContent).toContain('Current Data');
   });
+
+  it('should render "current-data-tab works!"', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('p')?.textContent).toContain('current-data-tab works!');
+  });
+
+  it('should NOT INITIALLY render "samples-tab works!"', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('p')?.textContent).not.toContain('samples-tab works!');
+  });
 });
