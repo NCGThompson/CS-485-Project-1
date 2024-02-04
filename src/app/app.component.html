@@ -1,44 +1,13 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 <!DOCTYPE html>
 <html>
   <body>
-    <div class="tab">
-      <button class="tablinks" onclick="openTab(event, '')">Current Data</button>
-      <button class="tablinks" onclick="openTab(event, '')">View Samples</button>
-      <button class="tablinks" onclick="openTab(event, '')">Settings</button>
-    </div>
-    
-    <!-- Tab content -->
-    <div id="current" class="tabcontent">
-     
-    </div>
-    
-    <div id="samples" class="tabcontent">
-  
-    </div>
-    
-    <div id="settings" class="tabcontent">
- 
-    </div>
-
+    <mat-tab-group>
+      <mat-tab label="Current Data"><app-current-data-tab/></mat-tab>
+      <mat-tab label="View Samples"><app-samples-tab/></mat-tab>
+      <mat-tab label="Settings"><app-settings-tab/></mat-tab>
+    </mat-tab-group>
   </body>
 </html>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 
 <router-outlet />

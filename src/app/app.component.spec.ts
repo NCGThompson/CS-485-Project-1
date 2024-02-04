@@ -1,10 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [provideAnimations()],
     }).compileComponents();
   });
 
@@ -24,6 +26,20 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('div.tab > button')?.textContent).toContain('Current Data');
+    expect(compiled.querySelector('.mdc-tab__text-label')?.textContent).toContain('Current Data');
+  });
+
+  it('should render "current-data-tab works!"', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('p')?.textContent).toContain('current-data-tab works!');
+  });
+
+  it('should NOT INITIALLY render "samples-tab works!"', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('p')?.textContent).not.toContain('samples-tab works!');
   });
 });
