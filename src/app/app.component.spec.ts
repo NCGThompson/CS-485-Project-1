@@ -2,6 +2,10 @@ import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
+import {HarnessLoader} from '@angular/cdk/testing';
+import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
+import { MatTabGroupHarness } from '@angular/material/tabs/testing';
+
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -45,5 +49,26 @@ describe('AppComponent', () => {
     paragraphs.forEach(paragraph => {
       expect(paragraph.textContent).not.toContain('samples-tab works!');
     });
+  });
+
+  it('should respond to tab changes', async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges(); // idk if we need this.
+    const compiled = fixture.nativeElement as HTMLElement;
+    const loader: HarnessLoader = TestbedHarnessEnvironment.loader(fixture);
+    const tabGroup = await loader.getHarness(MatTabGroupHarness);
+
+    expect((await tabGroup.getTabs()).length).toEqual(3); // There should be 3 tabs.
+    expect(await (await tabGroup.getSelectedTab()).getLabel())
+      .toContain("Current Data"); // We should start on the first tab.
+    expect(compiled.querySelector('p')?.textContent).toEqual('current-data-tab works!');
+
+    await tabGroup.selectTab({label: 'View Samples'}); // Selects the first tab not already selected
+    fixture.detectChanges();
+    await fixture.whenStable();
+    expect(await (await tabGroup.getSelectedTab()).getLabel())
+      .toContain("View Samples");
+    // expect(compiled.querySelector('p')?.textContent).toEqual('samples-tab works!');
+    // TODO
   });
 });
