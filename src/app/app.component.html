@@ -6,39 +6,130 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 <!DOCTYPE html>
-<html>
-  <body>
-    <div class="tab">
-      <button class="tablinks" onclick="openTab(event, '')">Current Data</button>
-      <button class="tablinks" onclick="openTab(event, '')">View Samples</button>
-      <button class="tablinks" onclick="openTab(event, '')">Settings</button>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .navbar button {
+            background-color: #333;
+            color: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar button:hover {
+            background-color: #555;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .navbar button {
+                width: 100%;
+            }
+
+            .dropdown {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <button class="tablinks" onclick="openTab(event, 'current')">Current Data</button>
+        <button class="tablinks" onclick="openTab(event, 'samples')">View Samples</button>
+
+        <div class="dropdown">
+            <button class="tablinks">More &#9662;</button>
+            <div class="dropdown-content">
+                <a href="#" onclick="openTab(event, 'settings')">Settings</a>
+                <!-- Add more dropdown items as needed -->
+            </div>
+        </div>
     </div>
-    
-    <!-- Tab content -->
+
+    <!-- Content for the "Current Data" tab goes here -->
     <div id="current" class="tabcontent">
-     
+        <p>Content for the "Current Data" tab goes here.</p>
     </div>
-    
+
+    <!-- Content for the "View Samples" tab goes here -->
     <div id="samples" class="tabcontent">
-  
+        <p>Content for the "View Samples" tab goes here.</p>
     </div>
-    
+
+    <!-- Content for the "Settings" tab goes here -->
     <div id="settings" class="tabcontent">
- 
+        <p>Content for the "Settings" tab goes here.</p>
     </div>
 
-  </body>
+    <!-- Your router-outlet here (assuming it's part of your Angular application) -->
+    <router-outlet />
+
+    <script>
+        function openTab(evt, tabName) {
+            // Add logic to handle tab switching
+            console.log(tabName);
+        }
+    </script>
+</body>
+
 </html>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet />
