@@ -40,6 +40,10 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('p')?.textContent).not.toContain('samples-tab works!');
+    const paragraphs = compiled.querySelectorAll('p');
+    
+    paragraphs.forEach(paragraph => {
+      expect(paragraph.textContent).not.toContain('samples-tab works!');
+    });
   });
 });
