@@ -1,4 +1,4 @@
-import { SMSDataItemInterface } from "./sms-interfaces";
+import { SMSDataItemInterface } from './sms-interfaces';
 
 describe('SMSDataItemInterface', () => {
   it('should create an empty instance', () => {
@@ -15,7 +15,7 @@ describe('SMSDataItemInterface', () => {
   it('should convert a partly empty instance to an array', () => {
     let instance = new SMSDataItemInterface('timestamp');
     let arr = instance.getFieldValues();
-    expect(arr.length).toEqual(7)
+    expect(arr.length).toEqual(7);
     expect(arr[0]).toEqual('timestamp');
     for (let i = 1; i < arr.length; i++) {
       expect(arr[i]).toEqual('');
@@ -24,13 +24,13 @@ describe('SMSDataItemInterface', () => {
 
   it('should have correct field names defined', () => {
     expect(SMSDataItemInterface.fieldNames).toEqual([
-        "Timestamp",
-        "Type",
-        "Sub Type",
-        "Name",
-        "Id",
-        "Sequence",
-        "Value"
+      'Timestamp',
+      'Type',
+      'Sub Type',
+      'Name',
+      'Id',
+      'Sequence',
+      'Value',
     ]);
   });
 });
@@ -40,13 +40,13 @@ describe('strictCheck', () => {
 
   beforeEach(() => {
     instance = new SMSDataItemInterface(
-      '2023-05-04T16:20:07.789848Z',  // Timestamp
-      'type',                         // Type
-      undefined,                      // Sub Type
-      '',                             // Name
-      'noWhitespace',                 // Id
-      '123',                          // Sequence
-      ''                              // Value
+      '2023-05-04T16:20:07.789848Z', // Timestamp
+      'type', // Type
+      undefined, // Sub Type
+      '', // Name
+      'noWhitespace', // Id
+      '123', // Sequence
+      '' // Value
     );
   });
 
