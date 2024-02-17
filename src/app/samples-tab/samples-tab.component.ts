@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-samples-tab',
   standalone: true,
   imports: [],
-  templateUrl: './samples-tab.component.html'
+  templateUrl: './samples-tab.component.html',
 })
-export class SamplesTabComponent {
-
-}
+export class SamplesTabComponent {}

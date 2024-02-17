@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-settings-tab',
   standalone: true,
   imports: [],
-  templateUrl: './settings-tab.component.html'
+  templateUrl: './settings-tab.component.html',
 })
-export class SettingsTabComponent {
-
-}
+export class SettingsTabComponent {}

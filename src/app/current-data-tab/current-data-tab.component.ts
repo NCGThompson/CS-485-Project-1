@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-current-data-tab',
   standalone: true,
   imports: [],
-  templateUrl: './current-data-tab.component.html'
+  templateUrl: './current-data-tab.component.html',
 })
-export class CurrentDataTabComponent {
-
-}
+export class CurrentDataTabComponent {}

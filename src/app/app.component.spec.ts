@@ -2,8 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
-import {HarnessLoader} from '@angular/cdk/testing';
-import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
+import { HarnessLoader } from '@angular/cdk/testing';
+import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 import { MatTabGroupHarness } from '@angular/material/tabs/testing';
 
 describe('AppComponent', () => {
@@ -30,14 +30,18 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.mdc-tab__text-label')?.textContent).toContain('Current Data');
+    expect(
+      compiled.querySelector('.mdc-tab__text-label')?.textContent
+    ).toContain('Current Data');
   });
 
   it('should render "current-data-tab works!"', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('p')?.textContent).toContain('current-data-tab works!');
+    expect(compiled.querySelector('p')?.textContent).toContain(
+      'current-data-tab works!'
+    );
   });
 
   it('should NOT INITIALLY render "samples-tab works!"', () => {
@@ -45,7 +49,7 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     const paragraphs = compiled.querySelectorAll('p');
-    
+
     paragraphs.forEach(paragraph => {
       expect(paragraph.textContent).not.toContain('samples-tab works!');
     });
@@ -59,15 +63,19 @@ describe('AppComponent', () => {
     const tabGroup = await loader.getHarness(MatTabGroupHarness);
 
     expect((await tabGroup.getTabs()).length).toEqual(3); // There should be 3 tabs.
-    expect(await (await tabGroup.getSelectedTab()).getLabel())
-      .toContain("Current Data"); // We should start on the first tab.
-    expect(compiled.querySelector('p')?.textContent).toEqual('current-data-tab works!');
+    expect(await (await tabGroup.getSelectedTab()).getLabel()).toContain(
+      'Current Data'
+    ); // We should start on the first tab.
+    expect(compiled.querySelector('p')?.textContent).toEqual(
+      'current-data-tab works!'
+    );
 
-    await tabGroup.selectTab({label: 'View Samples'}); // Selects the first tab not already selected
+    await tabGroup.selectTab({ label: 'View Samples' }); // Selects the first tab not already selected
     fixture.detectChanges();
     await fixture.whenStable();
-    expect(await (await tabGroup.getSelectedTab()).getLabel())
-      .toContain("View Samples");
+    expect(await (await tabGroup.getSelectedTab()).getLabel()).toContain(
+      'View Samples'
+    );
     // expect(compiled.querySelector('p')?.textContent).toEqual('samples-tab works!');
     // TODO
   });
