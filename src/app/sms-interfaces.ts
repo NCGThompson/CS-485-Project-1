@@ -32,6 +32,22 @@ export class SMSDataItemInterface {
     this.value = value;
   }
 
+  // Takes a DOM element and interprets it as a DataItem
+  static fromElement(node: Element) {
+    const out = new this();
+
+    out.timestamp = node.getAttribute('timestamp') ?? undefined;
+    out.subType = node.getAttribute('subType') ?? undefined;
+    out.name = node.getAttribute('name') ?? undefined;
+    out.id = node.getAttribute('id') ?? undefined;
+    out.sequence = node.getAttribute('sequence') ?? undefined;
+
+    out.type = node.tagName; // correct case only for XML elements not HTML
+    out.value = node.textContent ?? undefined;
+
+    return out;
+  }
+
   static readonly fieldNames = [
     'Timestamp',
     'Type',
