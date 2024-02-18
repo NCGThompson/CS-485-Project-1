@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="Streams.xsl"?>
+<MTConnectStreams xmlns:m="urn:mtconnect.org:MTConnectStreams:1.3" xmlns="urn:mtconnect.org:MTConnectStreams:1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:x="urn:nist.gov:NistStreams:1.3" xsi:schemaLocation="urn:nist.gov:NistStreams:1.3 /schemas/NistStreams_1.3.xsd">
+  <Header creationTime="2024-02-17T17:20:02Z" sender="99c7468029e8" instanceId="1683217207" version="1.4.0.10" bufferSize="1048576" nextSequence="251242114" firstSequence="251242014" lastSequence="252290589"/>
+  <Streams>
+    <DeviceStream name="GFAgie01" uuid="mtc_adapter001">
+      <ComponentStream component="Rotary" name="C" componentId="GFAgie01-C_1">
+        <Samples>
+          <Angle dataItemId="GFAgie01-C_2" timestamp="2024-02-16T11:33:06.032923" name="Cposition" sequence="251242092" subType="ACTUAL">359.9999</Angle>
+          <Angle dataItemId="GFAgie01-C_2" timestamp="2024-02-16T11:33:07.008889" name="Cposition" sequence="251242099" subType="ACTUAL">0</Angle>
+        </Samples>
+      </ComponentStream>
+      <ComponentStream component="Linear" name="X" componentId="GFAgie01-X_1">
+        <Samples>
+          <Position dataItemId="GFAgie01-X_2" timestamp="2024-02-16T11:32:58.763562" name="Xposition" sequence="251242026" subType="ACTUAL">19.11693</Position>
+          <Position dataItemId="GFAgie01-X_2" timestamp="2024-02-16T11:32:58.913063" name="Xposition" sequence="251242035" subType="ACTUAL">19.11681</Position>
+          <Position dataItemId="GFAgie01-X_2" timestamp="2024-02-16T11:33:00.495446" name="Xposition" sequence="251242038" subType="ACTUAL">19.11685</Position>
+          <Position dataItemId="GFAgie01-X_2" timestamp="2024-02-16T11:33:01.434457" name="Xposition" sequence="251242043" subType="ACTUAL">19.11693</Position>
+          <Position dataItemId="GFAgie01-X_2" timestamp="2024-02-16T11:33:01.580313" name="Xposition" sequence="251242056" subType="ACTUAL">19.11683</Position>
+          <Position dataItemId="GFAgie01-X_2" timestamp="2024-02-16T11:33:02.710222" name="Xposition" sequence="251242061" subType="ACTUAL">19.11685</Position>
+          <Position dataItemId="GFAgie01-X_2" timestamp="2024-02-16T11:33:03.644416" name="Xposition" sequence="251242068" subType="ACTUAL">19.11693</Position>
+          <Position dataItemId="GFAgie01-X_2" timestamp="2024-02-16T11:33:03.803035" name="Xposition" sequence="251242071" subType="ACTUAL">19.11678</Position>
+          <Position dataItemId="GFAgie01-X_2" timestamp="2024-02-16T11:33:04.396108" name="Xposition" sequence="251242075" subType="ACTUAL">19.11681</Position>
+          <Position dataItemId="GFAgie01-X_2" timestamp="2024-02-16T11:33:05.094991" name="Xposition" sequence="251242081" subType="ACTUAL">19.11698</Position>
+          <Position dataItemId="GFAgie01-X_2" timestamp="2024-02-16T11:33:05.451493" name="Xposition" sequence="251242085" subType="ACTUAL">19.11678</Position>
+          <Position dataItemId="GFAgie01-X_2" timestamp="2024-02-16T11:33:06.031738" name="Xposition" sequence="251242089" subType="ACTUAL">19.11689</Position>
+          <Position dataItemId="GFAgie01-X_2" timestamp="2024-02-16T11:33:07.008577" name="Xposition" sequence="251242096" subType="ACTUAL">19.11682</Position>
+          <Position dataItemId="GFAgie01-X_2" timestamp="2024-02-16T11:33:07.286049" name="Xposition" sequence="251242101" subType="ACTUAL">19.11698</Position>
+          <Position dataItemId="GFAgie01-X_2" timestamp="2024-02-16T11:33:08.160262" name="Xposition" sequence="251242105" subType="ACTUAL">19.11681</Position>
+        </Samples>
+      </ComponentStream>
+      <ComponentStream component="Linear" name="Y" componentId="GFAgie01-Y_1">
+        <Samples>
+          <Position dataItemId="GFAgie01-Y_2" timestamp="2024-02-16T11:32:58.763718" name="Yposition" sequence="251242027" subType="ACTUAL">-26.18812</Position>
+          <Position dataItemId="GFAgie01-Y_2" timestamp="2024-02-16T11:33:00.495573" name="Yposition" sequence="251242039" subType="ACTUAL">-26.18811</Position>
+          <Position dataItemId="GFAgie01-Y_2" timestamp="2024-02-16T11:33:01.434580" name="Yposition" sequence="251242044" subType="ACTUAL">-26.18812</Position>
+          <Position dataItemId="GFAgie01-Y_2" timestamp="2024-02-16T11:33:02.711161" name="Yposition" sequence="251242062" subType="ACTUAL">-26.18811</Position>
+          <Position dataItemId="GFAgie01-Y_2" timestamp="2024-02-16T11:33:03.803175" name="Yposition" sequence="251242072" subType="ACTUAL">-26.18812</Position>
+          <Position dataItemId="GFAgie01-Y_2" timestamp="2024-02-16T11:33:04.396238" name="Yposition" sequence="251242076" subType="ACTUAL">-26.18807</Position>
+          <Position dataItemId="GFAgie01-Y_2" timestamp="2024-02-16T11:33:05.095097" name="Yposition" sequence="251242082" subType="ACTUAL">-26.18816</Position>
+          <Position dataItemId="GFAgie01-Y_2" timestamp="2024-02-16T11:33:05.451608" name="Yposition" sequence="251242086" subType="ACTUAL">-26.18807</Position>
+          <Position dataItemId="GFAgie01-Y_2" timestamp="2024-02-16T11:33:06.032678" name="Yposition" sequence="251242090" subType="ACTUAL">-26.18816</Position>
+          <Position dataItemId="GFAgie01-Y_2" timestamp="2024-02-16T11:33:07.008694" name="Yposition" sequence="251242097" subType="ACTUAL">-26.18807</Position>
+          <Position dataItemId="GFAgie01-Y_2" timestamp="2024-02-16T11:33:07.286197" name="Yposition" sequence="251242102" subType="ACTUAL">-26.18815</Position>
+          <Position dataItemId="GFAgie01-Y_2" timestamp="2024-02-16T11:33:08.160367" name="Yposition" sequence="251242106" subType="ACTUAL">-26.18812</Position>
+        </Samples>
+      </ComponentStream>
+      <ComponentStream component="Linear" name="Z" componentId="GFAgie01-Z_1">
+        <Samples>
+          <Position dataItemId="GFAgie01-Z_2" timestamp="2024-02-16T11:32:56.592089" name="Zposition" sequence="251242018" subType="ACTUAL">4.14817</Position>
+          <Position dataItemId="GFAgie01-Z_2" timestamp="2024-02-16T11:32:58.763819" name="Zposition" sequence="251242028" subType="ACTUAL">4.13501</Position>
+          <Position dataItemId="GFAgie01-Z_2" timestamp="2024-02-16T11:32:59.575952" name="Zposition" sequence="251242036" subType="ACTUAL">4.12188</Position>
+          <Position dataItemId="GFAgie01-Z_2" timestamp="2024-02-16T11:33:00.495665" name="Zposition" sequence="251242040" subType="ACTUAL">4.10872</Position>
+          <Position dataItemId="GFAgie01-Z_2" timestamp="2024-02-16T11:33:01.434697" name="Zposition" sequence="251242045" subType="ACTUAL">4.09558</Position>
+          <Position dataItemId="GFAgie01-Z_2" timestamp="2024-02-16T11:33:01.580432" name="Zposition" sequence="251242057" subType="ACTUAL">4.08244</Position>
+          <Position dataItemId="GFAgie01-Z_2" timestamp="2024-02-16T11:33:02.711334" name="Zposition" sequence="251242063" subType="ACTUAL">4.06929</Position>
+          <Position dataItemId="GFAgie01-Z_2" timestamp="2024-02-16T11:33:03.644546" name="Zposition" sequence="251242069" subType="ACTUAL">4.05613</Position>
+          <Position dataItemId="GFAgie01-Z_2" timestamp="2024-02-16T11:33:03.803307" name="Zposition" sequence="251242073" subType="ACTUAL">4.04305</Position>
+          <Position dataItemId="GFAgie01-Z_2" timestamp="2024-02-16T11:33:04.396345" name="Zposition" sequence="251242077" subType="ACTUAL">4.02975</Position>
+          <Position dataItemId="GFAgie01-Z_2" timestamp="2024-02-16T11:33:05.095210" name="Zposition" sequence="251242083" subType="ACTUAL">4.01681</Position>
+          <Position dataItemId="GFAgie01-Z_2" timestamp="2024-02-16T11:33:05.451710" name="Zposition" sequence="251242087" subType="ACTUAL">4.00348</Position>
+          <Position dataItemId="GFAgie01-Z_2" timestamp="2024-02-16T11:33:06.032813" name="Zposition" sequence="251242091" subType="ACTUAL">3.99048</Position>
+          <Position dataItemId="GFAgie01-Z_2" timestamp="2024-02-16T11:33:07.008787" name="Zposition" sequence="251242098" subType="ACTUAL">3.97722</Position>
+          <Position dataItemId="GFAgie01-Z_2" timestamp="2024-02-16T11:33:07.286320" name="Zposition" sequence="251242103" subType="ACTUAL">3.96411</Position>
+          <Position dataItemId="GFAgie01-Z_2" timestamp="2024-02-16T11:33:08.160472" name="Zposition" sequence="251242107" subType="ACTUAL">4.10172</Position>
+        </Samples>
+      </ComponentStream>
+      <ComponentStream component="Path" name="path_basic" componentId="GFAgie01-path_basic_1">
+        <Samples>
+          <PathPosition dataItemId="GFAgie01-path_basic_7" timestamp="2024-02-16T11:32:58.763386" name="path_pos" sequence="251242025">1.2685100000 -7.1940200000 0.9604400000</PathPosition>
+          <PathPosition dataItemId="GFAgie01-path_basic_7" timestamp="2024-02-16T11:32:58.911498" name="path_pos" sequence="251242034">1.2684400000 -7.1940200000 0.9473000000</PathPosition>
+          <PathPosition dataItemId="GFAgie01-path_basic_7" timestamp="2024-02-16T11:33:00.495256" name="path_pos" sequence="251242037">1.2685400000 -7.1940100000 0.9341400000</PathPosition>
+          <PathPosition dataItemId="GFAgie01-path_basic_7" timestamp="2024-02-16T11:33:01.434211" name="path_pos" sequence="251242042">1.2685300000 -7.1940300000 0.9210000000</PathPosition>
+          <PathPosition dataItemId="GFAgie01-path_basic_7" timestamp="2024-02-16T11:33:01.580086" name="path_pos" sequence="251242055">1.2684300000 -7.1940200000 0.9078600000</PathPosition>
+          <PathPosition dataItemId="GFAgie01-path_basic_7" timestamp="2024-02-16T11:33:02.103575" name="path_pos" sequence="251242058">1.2685400000 -7.1940200000 0.8947000000</PathPosition>
+          <PathPosition dataItemId="GFAgie01-path_basic_7" timestamp="2024-02-16T11:33:03.051072" name="path_pos" sequence="251242067">1.2685500000 -7.1940200000 0.8815600000</PathPosition>
+          <PathPosition dataItemId="GFAgie01-path_basic_7" timestamp="2024-02-16T11:33:03.802860" name="path_pos" sequence="251242070">1.2684300000 -7.1940400000 0.8684900000</PathPosition>
+          <PathPosition dataItemId="GFAgie01-path_basic_7" timestamp="2024-02-16T11:33:04.395896" name="path_pos" sequence="251242074">1.2684100000 -7.1939900000 0.8552700000</PathPosition>
+          <PathPosition dataItemId="GFAgie01-path_basic_7" timestamp="2024-02-16T11:33:05.094752" name="path_pos" sequence="251242080">1.2686600000 -7.1940400000 0.8421000000</PathPosition>
+          <PathPosition dataItemId="GFAgie01-path_basic_7" timestamp="2024-02-16T11:33:05.451263" name="path_pos" sequence="251242084">1.2683600000 -7.1940200000 0.8290600000</PathPosition>
+          <PathPosition dataItemId="GFAgie01-path_basic_7" timestamp="2024-02-16T11:33:06.031522" name="path_pos" sequence="251242088">1.2685700000 -7.1940100000 0.8157400000</PathPosition>
+          <PathPosition dataItemId="GFAgie01-path_basic_7" timestamp="2024-02-16T11:33:07.008368" name="path_pos" sequence="251242095">1.2684900000 -7.1940400000 0.8028000000</PathPosition>
+          <PathPosition dataItemId="GFAgie01-path_basic_7" timestamp="2024-02-16T11:33:07.285078" name="path_pos" sequence="251242100">1.2685000000 -7.1939900000 0.7894100000</PathPosition>
+          <PathPosition dataItemId="GFAgie01-path_basic_7" timestamp="2024-02-16T11:33:08.160082" name="path_pos" sequence="251242104">1.2684800000 -7.1940100000 0.9018900000</PathPosition>
+        </Samples>
+        <Events>
+          <Line dataItemId="GFAgie01-path_basic_5" timestamp="2024-02-16T11:33:08.938454" name="line" sequence="251242110">21991</Line>
+        </Events>
+      </ComponentStream>
+    </DeviceStream>
+    <DeviceStream name="Mazak01" uuid="mtc_adapter002">
+      <ComponentStream component="Linear" name="X" componentId="Mazak01-X">
+        <Samples>
+          <Position dataItemId="Mazak01-X_1" timestamp="2024-02-16T11:32:56.597269" name="Xabs" sequence="251242014" subType="ACTUAL">10.243058</Position>
+          <Position dataItemId="Mazak01-X_1" timestamp="2024-02-16T11:32:57.698571" name="Xabs" sequence="251242020" subType="ACTUAL">7.474458</Position>
+          <Position dataItemId="Mazak01-X_1" timestamp="2024-02-16T11:32:58.816978" name="Xabs" sequence="251242029" subType="ACTUAL">4.706112</Position>
+          <Position dataItemId="Mazak01-X_1" timestamp="2024-02-16T11:33:01.458738" name="Xabs" sequence="251242046" subType="ACTUAL">2.975864</Position>
+          <Load dataItemId="Mazak01-X_3" timestamp="2024-02-16T11:33:01.459047" name="Xload" sequence="251242048">34</Load>
+          <AxisFeedrate dataItemId="Mazak01-X_4" timestamp="2024-02-16T11:32:58.817190" name="Xfrt" sequence="251242030">1.274233</AxisFeedrate>
+          <AxisFeedrate dataItemId="Mazak01-X_4" timestamp="2024-02-16T11:33:01.458924" name="Xfrt" sequence="251242047">0</AxisFeedrate>
+        </Samples>
+      </ComponentStream>
+      <ComponentStream component="Linear" name="Z" componentId="Mazak01-Z">
+        <Samples>
+          <Position dataItemId="Mazak01-Z_1" timestamp="2024-02-16T11:33:01.459174" name="Zabs" sequence="251242049" subType="ACTUAL">-22.531324</Position>
+          <Position dataItemId="Mazak01-Z_1" timestamp="2024-02-16T11:33:02.652637" name="Zabs" sequence="251242059" subType="ACTUAL">-19.470878</Position>
+          <Position dataItemId="Mazak01-Z_1" timestamp="2024-02-16T11:33:04.568770" name="Zabs" sequence="251242078" subType="ACTUAL">-16.993235</Position>
+          <Position dataItemId="Mazak01-Z_1" timestamp="2024-02-16T11:33:09.624245" name="Zabs" sequence="251242112" subType="ACTUAL">-14.224127</Position>
+          <AxisFeedrate dataItemId="Mazak01-Z_4" timestamp="2024-02-16T11:33:01.459308" name="Zfrt" sequence="251242050">2.561167</AxisFeedrate>
+        </Samples>
+      </ComponentStream>
+      <ComponentStream component="Path" name="path" componentId="Mazak01-path">
+        <Samples>
+          <AccumulatedTime dataItemId="Mazak01-path_17" timestamp="2024-02-16T11:32:56.597453" name="auto_time" sequence="251242015" subType="x:AUTO">10577056</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_17" timestamp="2024-02-16T11:32:57.698752" name="auto_time" sequence="251242021" subType="x:AUTO">10577058</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_17" timestamp="2024-02-16T11:32:58.817324" name="auto_time" sequence="251242031" subType="x:AUTO">10577059</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_17" timestamp="2024-02-16T11:33:01.460391" name="auto_time" sequence="251242052" subType="x:AUTO">10577060</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_17" timestamp="2024-02-16T11:33:02.652838" name="auto_time" sequence="251242060" subType="x:AUTO">10577061</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_17" timestamp="2024-02-16T11:33:04.570220" name="auto_time" sequence="251242093" subType="x:AUTO">10577062</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_17" timestamp="2024-02-16T11:33:09.624427" name="auto_time" sequence="251242113" subType="x:AUTO">10577063</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_18" timestamp="2024-02-16T11:32:56.597716" name="total_time" sequence="251242017" subType="x:TOTAL">49518289</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_18" timestamp="2024-02-16T11:32:57.698998" name="total_time" sequence="251242023" subType="x:TOTAL">49518290</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_18" timestamp="2024-02-16T11:32:58.817559" name="total_time" sequence="251242033" subType="x:TOTAL">49518291</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_18" timestamp="2024-02-16T11:33:01.460595" name="total_time" sequence="251242054" subType="x:TOTAL">49518292</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_18" timestamp="2024-02-16T11:33:02.872321" name="total_time" sequence="251242065" subType="x:TOTAL">49518293</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_18" timestamp="2024-02-16T11:33:08.451789" name="total_time" sequence="251242109" subType="x:TOTAL">49518294</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_19" timestamp="2024-02-16T11:32:56.597607" name="cut_time" sequence="251242016" subType="x:CUT">5761441</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_19" timestamp="2024-02-16T11:32:57.698868" name="cut_time" sequence="251242022" subType="x:CUT">5761442</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_19" timestamp="2024-02-16T11:32:58.817436" name="cut_time" sequence="251242032" subType="x:CUT">5761444</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_19" timestamp="2024-02-16T11:33:01.460497" name="cut_time" sequence="251242053" subType="x:CUT">5761445</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_19" timestamp="2024-02-16T11:33:02.652947" name="cut_time" sequence="251242064" subType="x:CUT">5761446</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_19" timestamp="2024-02-16T11:33:08.236381" name="cut_time" sequence="251242108" subType="x:CUT">5761447</AccumulatedTime>
+          <PathFeedrate dataItemId="Mazak01-path_7" timestamp="2024-02-16T11:33:01.459435" name="Fact" sequence="251242051" subType="ACTUAL">66.09451</PathFeedrate>
+        </Samples>
+      </ComponentStream>
+    </DeviceStream>
+    <DeviceStream name="Mazak03" uuid="mtc_adapter004">
+      <ComponentStream component="Path" name="path" componentId="Mazak03-path_1">
+        <Samples>
+          <AccumulatedTime dataItemId="Mazak03-path_15" timestamp="2024-02-16T11:32:56.524524" name="total_time" sequence="251242019" subType="x:TOTAL">14494550</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak03-path_15" timestamp="2024-02-16T11:32:58.576193" name="total_time" sequence="251242024" subType="x:TOTAL">14494551</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak03-path_15" timestamp="2024-02-16T11:33:01.200007" name="total_time" sequence="251242041" subType="x:TOTAL">14494552</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak03-path_15" timestamp="2024-02-16T11:33:03.546893" name="total_time" sequence="251242066" subType="x:TOTAL">14494553</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak03-path_15" timestamp="2024-02-16T11:33:04.688674" name="total_time" sequence="251242079" subType="x:TOTAL">14494554</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak03-path_15" timestamp="2024-02-16T11:33:06.701428" name="total_time" sequence="251242094" subType="x:TOTAL">14494555</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak03-path_15" timestamp="2024-02-16T11:33:09.131399" name="total_time" sequence="251242111" subType="x:TOTAL">14494556</AccumulatedTime>
+        </Samples>
+      </ComponentStream>
+    </DeviceStream>
+  </Streams>
+</MTConnectStreams>
