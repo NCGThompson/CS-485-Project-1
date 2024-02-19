@@ -71,12 +71,11 @@ describe('AppComponent', () => {
     );
 
     await tabGroup.selectTab({ label: 'View Samples' }); // Selects the first tab not already selected
-    fixture.detectChanges();
-    await fixture.whenStable();
     expect(await (await tabGroup.getSelectedTab()).getLabel()).toContain(
       'View Samples'
     );
-    // expect(compiled.querySelector('p')?.textContent).toEqual('samples-tab works!');
-    // TODO
+    expect(compiled.querySelectorAll('p')[2]?.textContent).toEqual(
+      'samples-tab works!'
+    ); // current-data-tab works! is also in the DOM and I don't know why
   });
 });

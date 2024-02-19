@@ -43,7 +43,7 @@ export class SMSDataItemInterface {
     out.sequence = node.getAttribute('sequence') ?? undefined;
 
     out.type = node.tagName; // correct case only for XML elements not HTML
-    out.value = node.textContent ?? undefined;
+    out.value = node.textContent || undefined;
 
     return out;
   }

@@ -33,70 +33,119 @@ describe('SMSDataItemInterface', () => {
       'Value',
     ]);
   });
-});
 
-describe('strictCheck', () => {
-  let instance: SMSDataItemInterface;
+  describe('strictCheck', () => {
+    let instance: SMSDataItemInterface;
 
-  beforeEach(() => {
-    instance = new SMSDataItemInterface(
-      '2023-05-04T16:20:07.789848Z', // Timestamp
-      'type', // Type
-      undefined, // Sub Type
-      '', // Name
-      'noWhitespace', // Id
-      '123', // Sequence
-      '' // Value
-    );
+    beforeEach(() => {
+      instance = new SMSDataItemInterface(
+        '2023-05-04T16:20:07.789848Z', // Timestamp
+        'type', // Type
+        undefined, // Sub Type
+        '', // Name
+        'noWhitespace', // Id
+        '123', // Sequence
+        '' // Value
+      );
+    });
+
+    it('should return false if timestamp is missing or invalid', () => {
+      expect(instance.strictCheck()).toBeTrue();
+
+      instance.timestamp = 'invalid-format';
+      expect(instance.strictCheck()).toBeFalse();
+
+      instance.timestamp = undefined;
+      expect(instance.strictCheck()).toBeFalse();
+    });
+
+    it('should return false if type is missing', () => {
+      expect(instance.strictCheck()).toBeTrue();
+
+      instance.type = undefined;
+      expect(instance.strictCheck()).toBeFalse();
+    });
+
+    it('should return false if id is missing or contains whitespace', () => {
+      expect(instance.strictCheck()).toBeTrue();
+
+      instance.id = 'has whitespace';
+      expect(instance.strictCheck()).toBeFalse();
+
+      instance.id = undefined;
+      expect(instance.strictCheck()).toBeFalse();
+    });
+
+    it('should return false if sequence is missing or not a decimal integer', () => {
+      expect(instance.strictCheck()).toBeTrue();
+
+      instance.sequence = 'invalid';
+      expect(instance.strictCheck()).toBeFalse();
+
+      instance.sequence = undefined;
+      expect(instance.strictCheck()).toBeFalse();
+    });
+
+    it('should return true if optional parameters are undefined or empty string', () => {
+      expect(instance.strictCheck()).toBeTrue();
+
+      instance.subType = 'someSubType';
+      expect(instance.strictCheck()).toBeTrue();
+
+      instance.name = 'someName';
+      expect(instance.strictCheck()).toBeTrue();
+
+      instance.value = 'someValue';
+      expect(instance.strictCheck()).toBeTrue();
+    });
   });
 
-  it('should return false if timestamp is missing or invalid', () => {
-    expect(instance.strictCheck()).toBeTrue();
+  describe('fromElement', () => {
+    it('should parse AssetChanged element correctly', () => {
+      const xml = `<AssetChanged dataItemId="GFAgie01_asset_chg" timestamp="2024-02-13T01:00:05.089753" sequence="248496550" assetType="">UNAVAILABLE</AssetChanged>`;
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(xml, 'application/xml');
+      const assetChangedElement = xmlDoc.documentElement;
 
-    instance.timestamp = 'invalid-format';
-    expect(instance.strictCheck()).toBeFalse();
+      const result = SMSDataItemInterface.fromElement(assetChangedElement);
 
-    instance.timestamp = undefined;
-    expect(instance.strictCheck()).toBeFalse();
-  });
+      expect(result).toEqual(jasmine.any(SMSDataItemInterface));
+      expect(result.timestamp).toEqual('2024-02-13T01:00:05.089753');
+      expect(result.type).toEqual('AssetChanged');
+      expect(result.sequence).toEqual('248496550');
+      expect(result.value).toEqual('UNAVAILABLE');
+    });
 
-  it('should return false if type is missing', () => {
-    expect(instance.strictCheck()).toBeTrue();
+    it('should parse Position element correctly', () => {
+      const xml = `<Position dataItemId="GFAgie01-X_2" timestamp="2024-02-13T21:16:19.059416" name="Xposition" sequence="249193105" subType="ACTUAL">20.22078</Position>`;
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(xml, 'application/xml');
+      const positionElement = xmlDoc.documentElement;
 
-    instance.type = undefined;
-    expect(instance.strictCheck()).toBeFalse();
-  });
+      const result = SMSDataItemInterface.fromElement(positionElement);
 
-  it('should return false if id is missing or contains whitespace', () => {
-    expect(instance.strictCheck()).toBeTrue();
+      expect(result).toEqual(jasmine.any(SMSDataItemInterface));
+      expect(result.timestamp).toEqual('2024-02-13T21:16:19.059416');
+      expect(result.type).toEqual('Position');
+      expect(result.sequence).toEqual('249193105');
+      expect(result.subType).toEqual('ACTUAL');
+      expect(result.value).toEqual('20.22078');
+    });
 
-    instance.id = 'has whitespace';
-    expect(instance.strictCheck()).toBeFalse();
+    it('should parse Normal element correctly', () => {
+      const xml = `<Normal dataItemId="Mazak03-coolant_2" timestamp="2024-02-13T20:43:22.139003" name="coolant_pres" sequence="249169200" type="PRESSURE"></Normal>`;
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(xml, 'application/xml');
+      const normalElement = xmlDoc.documentElement;
 
-    instance.id = undefined;
-    expect(instance.strictCheck()).toBeFalse();
-  });
+      const result = SMSDataItemInterface.fromElement(normalElement);
 
-  it('should return false if sequence is missing or not a decimal integer', () => {
-    expect(instance.strictCheck()).toBeTrue();
-
-    instance.sequence = 'invalid';
-    expect(instance.strictCheck()).toBeFalse();
-
-    instance.sequence = undefined;
-    expect(instance.strictCheck()).toBeFalse();
-  });
-
-  it('should return true if optional parameters are undefined or empty string', () => {
-    expect(instance.strictCheck()).toBeTrue();
-
-    instance.subType = 'someSubType';
-    expect(instance.strictCheck()).toBeTrue();
-
-    instance.name = 'someName';
-    expect(instance.strictCheck()).toBeTrue();
-
-    instance.value = 'someValue';
-    expect(instance.strictCheck()).toBeTrue();
+      expect(result).toEqual(jasmine.any(SMSDataItemInterface));
+      expect(result.timestamp).toEqual('2024-02-13T20:43:22.139003');
+      expect(result.type).toEqual('Normal');
+      expect(result.sequence).toEqual('249169200');
+      expect(result.name).toEqual('coolant_pres');
+      expect(result.value).toBeUndefined(); // Value is not provided in the XML
+    });
   });
 });
