@@ -1,0 +1,5 @@
+{
+  "[javascript][typescript][json][jsonc][html][css]": {
+    "editor.indentSize": 2
+  }
+}

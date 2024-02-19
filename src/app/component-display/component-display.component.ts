@@ -1,6 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SMSComponentInterface, SMSDataItemInterface } from '../sms-interfaces'; // Update the path as necessary
+import {
+  SMSComponentInterface,
+  SMSDataItemInterface,
+} from '../sms-interfaces/sms-interfaces'; // Update the path as necessary
 
 @Component({
   selector: 'app-component-display',

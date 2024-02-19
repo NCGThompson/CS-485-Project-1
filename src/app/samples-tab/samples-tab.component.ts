@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ComponentDisplayComponent } from '../component-display/component-display.component';
-import { SMSInterfaceExampleData } from '../sms-interfaces';
+import * as SMSInterfaceExampleData from '../sms-interfaces/sms-interfaces.examples';
 
 @Component({
   selector: 'app-samples-tab',

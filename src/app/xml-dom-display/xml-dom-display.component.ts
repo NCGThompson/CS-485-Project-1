@@ -1,7 +1,10 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SMSComponentInterface, SMSDataItemInterface } from '../sms-interfaces';
+import {
+  SMSComponentInterface,
+  SMSDataItemInterface,
+} from '../sms-interfaces/sms-interfaces';
 import { ComponentDisplayComponent } from '../component-display/component-display.component';
 
 // Right now this component isn't very useful, but we will change that.
@@ -59,7 +62,7 @@ export class XmlDomDisplayComponent implements OnChanges {
     out.component = componentNode.getAttribute('component') ?? undefined;
     out.name = componentNode.getAttribute('name') ?? undefined;
 
-    for (var category of ['Samples', 'Events', 'Condition']) {
+    for (const category of ['Samples', 'Events', 'Condition']) {
       // Condition is singular
       const values: SMSDataItemInterface[] = [];
       const childElements = componentNode.querySelector(category)?.children;

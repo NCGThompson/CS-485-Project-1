@@ -1,9 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {
-  SMSComponentInterface,
-  SMSDataItemInterface,
-  SMSInterfaceExampleData,
-} from '../sms-interfaces';
+import * as SMSInterfaceExampleData from '../sms-interfaces/sms-interfaces.examples';
 import { ComponentDisplayComponent } from './component-display.component';
 
 describe('SMSComponentDisplayComponent', () => {

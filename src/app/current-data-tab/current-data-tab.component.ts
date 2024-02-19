@@ -22,12 +22,11 @@ export class CurrentDataTabComponent implements OnInit {
     this.loadXmlDocument();
   }
 
-  // FIXME deprecated fetch idiom
   loadXmlDocument(): void {
     this.http
       .get('assets/test-data/current.xml', { responseType: 'text' })
-      .subscribe(
-        xmlContent => {
+      .subscribe({
+        next: xmlContent => {
           // Convert XML string to XMLDocument
           const parser = new DOMParser();
           this.myXmlDocument = parser.parseFromString(
@@ -35,9 +34,9 @@ export class CurrentDataTabComponent implements OnInit {
             'application/xml'
           );
         },
-        error => {
-          console.error('Error fetching XML file:', error);
-        }
-      );
+        error: err => {
+          console.error('Error fetching XML file:', err);
+        },
+      });
   }
 }
