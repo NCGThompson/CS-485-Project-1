@@ -23,20 +23,18 @@ export class CurrentDataTabComponent implements OnInit {
   }
 
   loadXmlDocument(): void {
-    this.http
-      .get('assets/test-data/current.xml', { responseType: 'text' })
-      .subscribe({
-        next: xmlContent => {
-          // Convert XML string to XMLDocument
-          const parser = new DOMParser();
-          this.myXmlDocument = parser.parseFromString(
-            xmlContent,
-            'application/xml'
-          );
-        },
-        error: err => {
-          console.error('Error fetching XML file:', err);
-        },
-      });
+    this.http.get('vds/current', { responseType: 'text' }).subscribe({
+      next: xmlContent => {
+        // Convert XML string to XMLDocument
+        const parser = new DOMParser();
+        this.myXmlDocument = parser.parseFromString(
+          xmlContent,
+          'application/xml'
+        );
+      },
+      error: err => {
+        console.error('Error fetching XML file:', err);
+      },
+    });
   }
 }
