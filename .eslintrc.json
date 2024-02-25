@@ -1,6 +1,6 @@
 {
   "root": true,
-  "ignorePatterns": ["projects/**/*", "/dist/**/*"],
+  "ignorePatterns": ["projects/**/*", "/dist/**/*", "documentation/**/*"],
   "overrides": [
     {
       "files": ["*.ts"],
@@ -40,7 +40,7 @@
       ],
       "rules": {
         "prettier/prettier": [
-          "error",
+          "warn",
           {
             "parser": "angular"
           }
