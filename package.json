@@ -9,7 +9,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "lints": "npx prettier --write .; ng lint; npx eslint .",
-    "prettier": "npx prettier --write ."
+    "prettier": "npx prettier --write .",
+    "compodoc:build": "compodoc -p tsconfig.doc.json",
+    "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s",
+    "compodoc:serve": "compodoc -s"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +39,7 @@
     "@angular-eslint/template-parser": "17.2.1",
     "@angular/cli": "^17.2.0",
     "@angular/compiler-cli": "^17.2.1",
+    "@compodoc/compodoc": "^1.1.23",
     "@types/jasmine": "~5.1.0",
     "@typescript-eslint/eslint-plugin": "6.19.0",
     "@typescript-eslint/parser": "6.19.0",
