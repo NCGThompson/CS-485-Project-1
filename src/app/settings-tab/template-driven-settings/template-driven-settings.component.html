@@ -1,0 +1,46 @@
+<mat-card>
+  <mat-card-title>Settings</mat-card-title>
+  <mat-card-content>
+    <form>
+      <!-- Base URL Setting -->
+      <mat-form-field appearance="fill">
+        <mat-label>Base URL</mat-label>
+        <input
+          matInput
+          placeholder="https://smstestbed.nist.gov/vds/"
+          [(ngModel)]="baseUrl"
+          name="baseUrl" />
+        <button
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="restoreDefault()">
+          <mat-icon>restore</mat-icon>
+        </button>
+      </mat-form-field>
+      <br />
+
+      <!-- Number of Samples Setting -->
+      <mat-form-field appearance="fill">
+        <mat-label>Number of Samples</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Number of Samples"
+          min="0"
+          [(ngModel)]="numberOfSamples"
+          name="numberOfSamples" />
+      </mat-form-field>
+      <br />
+
+      <!-- Auto Refresh Setting -->
+      <mat-slide-toggle [(ngModel)]="autoRefresh" name="autoRefresh"
+        >Enable Auto Refresh</mat-slide-toggle
+      >
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Cancel</button>
+    <button mat-raised-button color="primary">Save</button>
+  </mat-card-actions>
+</mat-card>
