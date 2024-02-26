@@ -12,7 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
-  selector: 'app-reactive-settings',
+  selector: 'app-template-driven-settings',
   standalone: true,
   imports: [
     CommonModule,
@@ -22,9 +22,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatFormFieldModule,
     MatSlideToggleModule,
   ],
-  templateUrl: './reactive-settings.component.html',
+  templateUrl: './template-driven-settings.component.html',
 })
-export class ReactiveSettingsComponent {
+export class TemplateDrivenSettingsComponent {
   samplesFormControl = new FormControl();
   baseUrlControl = new FormControl();
 

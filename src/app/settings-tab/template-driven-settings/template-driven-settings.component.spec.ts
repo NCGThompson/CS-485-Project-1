@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ReactiveSettingsComponent } from './reactive-settings.component';
+import { TemplateDrivenSettingsComponent } from './template-driven-settings.component';
 
 describe('ReactiveSettingsComponent', () => {
-  let component: ReactiveSettingsComponent;
-  let fixture: ComponentFixture<ReactiveSettingsComponent>;
+  let component: TemplateDrivenSettingsComponent;
+  let fixture: ComponentFixture<TemplateDrivenSettingsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveSettingsComponent, BrowserAnimationsModule],
+      imports: [TemplateDrivenSettingsComponent, BrowserAnimationsModule],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ReactiveSettingsComponent);
+    fixture = TestBed.createComponent(TemplateDrivenSettingsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
