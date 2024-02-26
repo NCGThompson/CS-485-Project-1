@@ -1,44 +1,33 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {
-  FormBuilder,
-  FormControl,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
-
-import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-template-driven-settings',
   standalone: true,
   imports: [
-    CommonModule,
     FormsModule,
-    ReactiveFormsModule,
-    MatInputModule,
+    MatCardModule,
     MatFormFieldModule,
+    MatInputModule,
     MatSlideToggleModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   templateUrl: './template-driven-settings.component.html',
 })
 export class TemplateDrivenSettingsComponent {
-  samplesFormControl = new FormControl();
-  baseUrlControl = new FormControl();
+  baseUrl: string = ''; // Initialize with actual default or fetched value
+  numberOfSamples: number = 100; // Default or fetched value
+  autoRefresh: boolean = true; // Default or fetched value
+  defaultBaseUrl: string = '/vds'; // Your default Base URL
 
-  options = this._formBuilder.group({
-    samplesNumber: this.samplesFormControl,
-    baseUrl: this.baseUrlControl,
-  });
-
-  constructor(private _formBuilder: FormBuilder) {}
-
-  getBaseUrl(): string {
-    return this.baseUrlControl.value || '/vds/';
-  }
-  getSampleCount(): string {
-    return this.baseUrlControl.value || '100';
+  restoreDefault(): void {
+    this.baseUrl = this.defaultBaseUrl;
   }
 }

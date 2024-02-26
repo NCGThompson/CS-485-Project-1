@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TemplateDrivenSettingsComponent } from './template-driven-settings.component';
 
-describe('ReactiveSettingsComponent', () => {
+describe('TemplateDrivenSettingsComponent', () => {
   let component: TemplateDrivenSettingsComponent;
   let fixture: ComponentFixture<TemplateDrivenSettingsComponent>;
 
