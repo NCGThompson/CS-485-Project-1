@@ -41,5 +41,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Test data
+# Manually added
 /src/app/assets/test-data/*
+/documentation

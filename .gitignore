@@ -44,3 +44,6 @@ Thumbs.db
 # Too big for now
 /src/assets/test-data/big-sample.xml
 /src/assets/test-data/bigger-sample.xml
+
+# Reconsider this
+/documentation
