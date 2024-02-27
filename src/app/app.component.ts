@@ -22,6 +22,4 @@ import { SettingsTabComponent } from './settings-tab/settings-tab.component';
 })
 export class AppComponent {
   title = 'Project-1';
-
-  
 }

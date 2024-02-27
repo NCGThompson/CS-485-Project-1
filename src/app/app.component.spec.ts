@@ -35,12 +35,12 @@ describe('AppComponent', () => {
     ).toContain('Current Data');
   });
 
-  it('should render "current-data-tab works!"', () => {
+  it('should render "Nist Data"', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('p')?.textContent).toContain(
-      'current-data-tab works!'
+      'Nist Data'
     );
   });
 
@@ -67,7 +67,7 @@ describe('AppComponent', () => {
       'Current Data'
     ); // We should start on the first tab.
     expect(compiled.querySelector('p')?.textContent).toEqual(
-      'current-data-tab works!'
+      'Nist Data'
     );
 
     await tabGroup.selectTab({ label: 'View Samples' }); // Selects the first tab not already selected
