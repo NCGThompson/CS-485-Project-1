@@ -2,6 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { KeyValuePipe } from '@angular/common';
+import { Subscription, interval, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { KeyValuePipe } from '@angular/common';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
+  private intervalSub!: Subscription;
 
   showData: any
   devices: any
@@ -27,20 +29,19 @@ export class HomeComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.getCurrent()
-
+    this.intervalSub = interval(1000).pipe(
+      switchMap(() => this.dataService.getCurrentData())
+    ).subscribe(res => {
+      if (res) this.applyData(res);
+    });
   }
 
-  getCurrent() {
-    this.dataService.getCurrentData().subscribe((res: any) => {
-      this.showData = res.MTConnectStreams
-      this.devices = this.showData.Streams
-      console.log(this.devices)
-
-    }, (error) => {
-      console.log(error)
-    })
+  applyData(res: any) {
+    this.showData = res.MTConnectStreams
+    this.devices = this.showData.Streams
+    console.log(this.devices)
   }
+
   openDeviceComponent(item: any, x: any) {
     console.log('x', x)
     this.selectedComponentEventsIterate = [];
