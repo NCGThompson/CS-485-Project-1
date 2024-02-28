@@ -1,25 +1,15 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-
-import { MatTabsModule } from '@angular/material/tabs';
-
-import { CurrentDataTabComponent } from './current-data-tab/current-data-tab.component';
-import { SamplesTabComponent } from './samples-tab/samples-tab.component';
-import { SettingsTabComponent } from './settings-tab/settings-tab.component';
+import { MainComponent } from './components/main/main.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    MatTabsModule,
-    CurrentDataTabComponent,
-    SamplesTabComponent,
-    SettingsTabComponent,
-  ],
+  imports: [CommonModule, RouterOutlet,MainComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Project-1';
+  title = 'mind';
 }

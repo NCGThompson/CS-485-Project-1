@@ -1,6 +1,0 @@
-{
-  "[javascript][typescript][json][jsonc][html][css]": {
-    "editor.indentSize": 2
-  },
-  "eslint.rules.customizations": [{ "rule": "*prettier", "severity": "info" }]
-}
