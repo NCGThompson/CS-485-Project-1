@@ -8,9 +8,9 @@ import * as xml2js from 'xml2js';
 })
 
 export class DataService {
-  currentURL: string = 'https://smstestbed.nist.gov/vds/current';
-  sampleURL: string = 'https://smstestbed.nist.gov/vds/sample';
-  countURL: string = 'https://smstestbed.nist.gov/vds/sample?count=2000';
+  currentURL: string = '/assets/test-data/current.xml';
+  sampleURL: string = '/assets/test-data/sample.xml';
+  countURL: string = '/assets/test-data/big-sample.xml'; // count=10000
 
   constructor(private httpClient: HttpClient) {
 
