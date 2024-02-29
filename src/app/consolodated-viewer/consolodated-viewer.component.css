@@ -1,54 +1,50 @@
 .main-head {
-    background: #73737840;
-      justify-content: center;
-      text-align: center;
-      padding: 15px 0px;
-  }
-  .deviceName {
-    color: whitesmoke;
-  
-  }
-  .componentName {
-    color: whitesmoke;
-  }
-  .sideBar {
-    background: #e4e4e4;
-    padding: 10px 10px;
-    text-align: center;
-  
-  }
-  .deviceNameSideBar {
-    background: #548a91;
-      padding: 10px 0px;
-      color: #f0f0f0;
-  }
-  li {
-    list-style-type: none;
-    cursor: pointer;
-    padding: 5px 0px;
-  }
-  
-  li:hover {
-    list-style-type: none;
-    cursor: pointer;
-    background: #73737840;
-    padding: 10px 0px;
-  }
-  ul, ol {
-    list-style-type: none;
-    padding: 0;
-    margin: 10px 0px;
-  
-  }
-  
-  .commonP {
-  
-    padding: 20px;
-  }
-  .commonH {
-    text-align: center;
-    background: #548a91;
-    padding: 10px;
-    color: aliceblue;
-  }
-  
+  background: #73737840;
+  justify-content: center;
+  text-align: center;
+  padding: 15px 0px;
+}
+.deviceName {
+  color: whitesmoke;
+}
+.componentName {
+  color: whitesmoke;
+}
+.sideBar {
+  background: #e4e4e4;
+  padding: 10px 10px;
+  text-align: center;
+}
+.deviceNameSideBar {
+  background: #548a91;
+  padding: 10px 0px;
+  color: #f0f0f0;
+}
+li {
+  list-style-type: none;
+  cursor: pointer;
+  padding: 5px 0px;
+}
+
+li:hover {
+  list-style-type: none;
+  cursor: pointer;
+  background: #73737840;
+  padding: 10px 0px;
+}
+ul,
+ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0px;
+}
+
+.commonP {
+  padding: 20px;
+}
+.commonH {
+  text-align: center;
+  background: #548a91;
+  padding: 10px;
+  color: aliceblue;
+}
