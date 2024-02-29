@@ -16,24 +16,8 @@ export class DataService {
 
   }
 
-  getCurrentData() {
-    return this.httpClient.get(this.currentURL, { responseType: 'text' })
-      .pipe(
-        map((response: any) => this.parseXmlToJson(response)),
-        catchError(this.handleError)
-      );
-  }
-
-  getSampleData() {
-    return this.httpClient.get(this.sampleURL, { responseType: 'text' })
-      .pipe(
-        map((response: any) => this.parseXmlToJson(response)),
-        catchError(this.handleError)
-      );
-  }
-
-  getCountData() {
-    return this.httpClient.get(this.countURL, { responseType: 'text' })
+  getData(sourceUrl: string) {
+    return this.httpClient.get(sourceUrl, { responseType: 'text' })
       .pipe(
         map((response: any) => this.parseXmlToJson(response)),
         catchError(this.handleError)
