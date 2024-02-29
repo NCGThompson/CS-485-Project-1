@@ -1,42 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 
-import { XmlDomDisplayComponent } from '../xml-dom-display/xml-dom-display.component';
+import { ConsolodatedViewerComponent } from '../consolodated-viewer/consolodated-viewer.component';
 
 @Component({
   selector: 'app-current-data-tab',
   standalone: true,
-  imports: [XmlDomDisplayComponent, HttpClientModule],
+  imports: [ConsolodatedViewerComponent],
   templateUrl: './current-data-tab.component.html',
 })
-export class CurrentDataTabComponent implements OnInit {
-  myXmlDocument?: XMLDocument;
-
-  constructor(
-    private http: HttpClient,
-    private sanitizer: DomSanitizer
-  ) {}
-
-  ngOnInit(): void {
-    this.loadXmlDocument();
-  }
-
-  loadXmlDocument(): void {
-    this.http
-      .get('assets/test-data/current.xml', { responseType: 'text' })
-      .subscribe({
-        next: xmlContent => {
-          // Convert XML string to XMLDocument
-          const parser = new DOMParser();
-          this.myXmlDocument = parser.parseFromString(
-            xmlContent,
-            'application/xml'
-          );
-        },
-        error: err => {
-          console.error('Error fetching XML file:', err);
-        },
-      });
-  }
-}
+export class CurrentDataTabComponent {}
