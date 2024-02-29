@@ -8,10 +8,9 @@ describe('ConsolodatedViewerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ConsolodatedViewerComponent]
-    })
-    .compileComponents();
-    
+      imports: [ConsolodatedViewerComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ConsolodatedViewerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

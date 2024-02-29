@@ -39,9 +39,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('p')?.textContent).toContain(
-      'Nist Data'
-    );
+    expect(compiled.querySelector('p')?.textContent).toContain('Nist Data');
   });
 
   it('should NOT INITIALLY render "samples-tab works!"', () => {
@@ -66,9 +64,7 @@ describe('AppComponent', () => {
     expect(await (await tabGroup.getSelectedTab()).getLabel()).toContain(
       'Current Data'
     ); // We should start on the first tab.
-    expect(compiled.querySelector('p')?.textContent).toEqual(
-      'Nist Data'
-    );
+    expect(compiled.querySelector('p')?.textContent).toEqual('Nist Data');
 
     await tabGroup.selectTab({ label: 'View Samples' }); // Selects the first tab not already selected
     expect(await (await tabGroup.getSelectedTab()).getLabel()).toContain(
