@@ -20,14 +20,11 @@ export class XmlDomDisplayComponent implements OnChanges {
   @Input() xmlDocument?: XMLDocument;
   processedData?: SMSProcessedFileInterface;
 
-  selectedComponentName: any;
-  selectedComponentSamples: any;
-  selectedComponentEvents: any = {};
-  selectedComponentCondition: any;
-  selectedDeviceName: any;
-  selectedComponentEventsIterate: any;
-  selectedComponentConditionIterate: any;
-  selectedComponentSamplesIterate: any;
+  selectedComponentName?: string;
+  selectedDeviceName?: string;
+  selectedComponentEventsIterate: SMSDataItemInterface[] = [];
+  selectedComponentConditionIterate: SMSDataItemInterface[] = [];
+  selectedComponentSamplesIterate: SMSDataItemInterface[] = [];
 
   constructor() {}
 
@@ -113,129 +110,18 @@ export class XmlDomDisplayComponent implements OnChanges {
     this.selectedComponentName = component.name;
     component.categories.forEach(category => {
       if (category.name === 'Samples' && category.values.length > 0) {
-        this.selectedComponentSamples = category.values;
+        this.selectedComponentSamplesIterate = category.values;
       } else if (category.name === 'Events' && category.values.length > 0) {
-        this.selectedComponentEvents = category.values;
+        this.selectedComponentEventsIterate = category.values;
       } else if (category.name === 'Condition' && category.values.length > 0) {
-        this.selectedComponentCondition = category.values;
+        this.selectedComponentConditionIterate = category.values;
       }
     });
-    // // for event
-    // if (this.selectedComponentEvents) {
-    //   const evilResponseProps = Object.keys(this.selectedComponentEvents);
-    //   this.selectedComponentEventsIterate = [];
-    //   for (const prop of evilResponseProps) {
-    //     this.selectedComponentEventsIterate.push(
-    //       this.selectedComponentEvents[prop]
-    //     );
-    //   }
-    // }
-
-    // // for sample
-    // if (this.selectedComponentSamples) {
-    //   const evilResponseProps1 = Object.keys(this.selectedComponentSamples);
-    //   this.selectedComponentSamplesIterate = [];
-    //   for (const prop of evilResponseProps1) {
-    //     this.selectedComponentSamplesIterate.push(
-    //       this.selectedComponentSamples[prop]
-    //     );
-    //   }
-    // }
-
-    // // for condition
-    // if (this.selectedComponentCondition) {
-    //   const evilResponseProps2 = Object.keys(this.selectedComponentCondition);
-    //   this.selectedComponentConditionIterate = [];
-    //   for (const prop of evilResponseProps2) {
-    //     this.selectedComponentConditionIterate.push(
-    //       this.selectedComponentCondition[prop]
-    //     );
-    //   }
-    // }
-
-    // Function to transform SMSDataItemInterface instance to a simpler object
-    function transformDataItem(
-      dataItem: SMSDataItemInterface
-    ): { key: string; value: string }[] {
-      const valueArray = dataItem.getFieldValues();
-      return SMSDataItemInterface.fieldNames.map((key, index) => ({
-        key,
-        value: valueArray[index],
-      }));
-    }
-
-    // Transform each selected component data item
-    this.selectedComponentEventsIterate =
-      this.selectedComponentEvents?.map(transformDataItem) || [];
-    this.selectedComponentSamplesIterate =
-      this.selectedComponentSamples?.map(transformDataItem) || [];
-    this.selectedComponentConditionIterate =
-      this.selectedComponentCondition?.map(transformDataItem) || [];
-
-    //this.makeIterables();
 
     console.log('goodResponse', this.selectedComponentEventsIterate);
     console.log('goodResponse1', this.selectedComponentSamplesIterate);
     console.log('goodResponse2', this.selectedComponentConditionIterate);
   }
 
-  private makeIterables() {
-    // Assuming this.selectedComponentEvents is an array of SMSDataItemInterface instances
-    if (this.selectedComponentEvents) {
-      this.selectedComponentEventsIterate = this.selectedComponentEvents.map(
-        (item: SMSDataItemInterface) => ({
-          _: item.name, // Using the name property for the display name of each item
-          $: {
-            Timestamp: item.timestamp,
-            Type: item.type,
-            SubType: item.subType,
-            Name: item.name,
-            Id: item.id,
-            Sequence: item.sequence,
-            Value: item.value,
-          },
-        })
-      );
-    } else {
-      this.selectedComponentEventsIterate = [];
-    }
-
-    // Repeat the process for samples and conditions with appropriate adjustments if needed
-    if (this.selectedComponentSamples) {
-      this.selectedComponentSamplesIterate = this.selectedComponentSamples.map(
-        (item: SMSDataItemInterface) => ({
-          _: item.name, // Using the name property for the display name of each item
-          $: {
-            Timestamp: item.timestamp,
-            Type: item.type,
-            SubType: item.subType,
-            Name: item.name,
-            Id: item.id,
-            Sequence: item.sequence,
-            Value: item.value,
-          },
-        })
-      );
-    } else {
-      this.selectedComponentSamplesIterate = [];
-    }
-
-    if (this.selectedComponentCondition) {
-      this.selectedComponentConditionIterate =
-        this.selectedComponentCondition.map((item: SMSDataItemInterface) => ({
-          _: item.name, // Using the name property for the display name of each item
-          $: {
-            Timestamp: item.timestamp,
-            Type: item.type,
-            SubType: item.subType,
-            Name: item.name,
-            Id: item.id,
-            Sequence: item.sequence,
-            Value: item.value,
-          },
-        }));
-    } else {
-      this.selectedComponentConditionIterate = [];
-    }
-  }
+  SMSDataItemInterface = SMSDataItemInterface;
 }
