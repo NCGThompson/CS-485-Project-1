@@ -1,0 +1,6 @@
+{
+    "/vds/*": {
+        "target": "https://smstestbed.nist.gov/",
+        "changeOrigin": true
+    }
+}
