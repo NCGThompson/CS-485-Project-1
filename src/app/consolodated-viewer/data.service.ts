@@ -2,7 +2,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, throwError } from 'rxjs';
-import * as xml2js from 'xml2js';
 
 @Injectable({
   providedIn: 'root',
@@ -16,25 +15,14 @@ export class DataService {
 
   getData(sourceUrl: string) {
     return this.httpClient.get(sourceUrl, { responseType: 'text' }).pipe(
-      map((response: string) => this.parseXmlToJson(response)),
+      map((response: string) => this.parseXmlToDom(response)),
       catchError(this.handleError)
     );
   }
 
-  private parseXmlToJson(xmlData: string) {
-    let jsonData;
-    xml2js.parseString(
-      xmlData,
-      { explicitArray: false },
-      (error: Error | null, result: any) => {
-        if (error) {
-          throw new Error('Error parsing XML: ' + error);
-        } else {
-          jsonData = result;
-        }
-      }
-    );
-    return jsonData;
+  private parseXmlToDom(xmlData: string): XMLDocument {
+    const parser: DOMParser = new DOMParser();
+    return parser.parseFromString(xmlData, 'text/xml');
   }
 
   private handleError(error: HttpErrorResponse) {

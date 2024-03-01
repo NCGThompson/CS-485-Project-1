@@ -4,89 +4,26 @@ import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from './data.service';
 import { KeyValuePipe } from '@angular/common';
 import { Subscription, interval, switchMap } from 'rxjs';
+import { XmlDomDisplayComponent } from '../xml-dom-display/xml-dom-display.component';
 
 @Component({
   selector: 'app-consolodated-viewer',
   standalone: true,
-  imports: [HttpClientModule, KeyValuePipe],
+  imports: [HttpClientModule, KeyValuePipe, XmlDomDisplayComponent],
   providers: [DataService, HttpClient],
   templateUrl: './consolodated-viewer.component.html',
-  styleUrl: './consolodated-viewer.component.css',
 })
 export class ConsolodatedViewerComponent implements OnInit {
   @Input() sourceUrl!: string;
-  private intervalSub!: Subscription;
+  xmlDocument?: XMLDocument;
+  private intervalSub!: Subscription; // IDE may gray out
 
-  showData: any;
-  devices: any;
-  selectedComponentName: any;
-  selectedComponentSamples: any;
-  selectedComponentEvents: any = {};
-  selectedComponentCondition: any;
-  selectedDeviceName: any;
-  selectedComponentEventsIterate: any;
-  selectedComponentConditionIterate: any;
-  selectedComponentSamplesIterate: any;
   constructor(private dataService: DataService) {}
   ngOnInit(): void {
     this.intervalSub = interval(1000)
       .pipe(switchMap(() => this.dataService.getData(this.sourceUrl)))
       .subscribe(res => {
-        if (res) this.applyData(res);
+        if (res) this.xmlDocument = res;
       });
-  }
-
-  applyData(res: any) {
-    this.showData = res.MTConnectStreams;
-    this.devices = this.showData.Streams;
-    console.log(this.devices);
-  }
-
-  openDeviceComponent(item: any, x: any) {
-    console.log('x', x);
-    this.selectedComponentEventsIterate = [];
-    this.selectedComponentConditionIterate = [];
-    this.selectedComponentConditionIterate = [];
-    this.selectedDeviceName = item.$.name;
-    this.selectedComponentName = x.$.name;
-    this.selectedComponentSamples = x?.Samples ? x?.Samples : undefined;
-    this.selectedComponentEvents = x?.Events ? x?.Events : undefined;
-    this.selectedComponentCondition = x?.Condition ? x?.Condition : undefined;
-    // for event
-    if (this.selectedComponentEvents) {
-      const evilResponseProps = Object.keys(this.selectedComponentEvents);
-      this.selectedComponentEventsIterate = [];
-      for (const prop of evilResponseProps) {
-        this.selectedComponentEventsIterate.push(
-          this.selectedComponentEvents[prop]
-        );
-      }
-    }
-
-    // for sample
-    if (this.selectedComponentSamples) {
-      const evilResponseProps1 = Object.keys(this.selectedComponentSamples);
-      this.selectedComponentSamplesIterate = [];
-      for (const prop of evilResponseProps1) {
-        this.selectedComponentSamplesIterate.push(
-          this.selectedComponentSamples[prop]
-        );
-      }
-    }
-
-    // for condition
-    if (this.selectedComponentCondition) {
-      const evilResponseProps2 = Object.keys(this.selectedComponentCondition);
-      this.selectedComponentConditionIterate = [];
-      for (const prop of evilResponseProps2) {
-        this.selectedComponentConditionIterate.push(
-          this.selectedComponentCondition[prop]
-        );
-      }
-    }
-
-    console.log('goodResponse', this.selectedComponentEventsIterate);
-    console.log('goodResponse1', this.selectedComponentSamplesIterate);
-    console.log('goodResponse2', this.selectedComponentConditionIterate);
   }
 }
