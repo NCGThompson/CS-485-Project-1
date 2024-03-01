@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import {
   SMSComponentInterface,
   SMSDataItemInterface,
+  SMSDeviceInterface,
+  SMSProcessedFileInterface,
 } from '../sms-interfaces/sms-interfaces';
 import { ComponentDisplayComponent } from '../component-display/component-display.component';
+import { of } from 'rxjs';
 
-// Right now this component isn't very useful, but we will change that.
-// It uses component-display to render the third ComponentStream node in the input DOM.
 @Component({
   selector: 'app-xml-dom-display',
   standalone: true,
@@ -18,7 +19,16 @@ import { ComponentDisplayComponent } from '../component-display/component-displa
 })
 export class XmlDomDisplayComponent implements OnChanges {
   @Input() xmlDocument?: XMLDocument;
-  processedData?: SMSComponentInterface;
+  processedData?: SMSProcessedFileInterface;
+
+  selectedComponentName: any;
+  selectedComponentSamples: any;
+  selectedComponentEvents: any = {};
+  selectedComponentCondition: any;
+  selectedDeviceName: any;
+  selectedComponentEventsIterate: any;
+  selectedComponentConditionIterate: any;
+  selectedComponentSamplesIterate: any;
 
   constructor() {}
 
@@ -31,55 +41,120 @@ export class XmlDomDisplayComponent implements OnChanges {
     }
   }
 
-  // For now we are just getting the third Component in the XML
-  // and translating it into an SMSComponentInterface instance
   private processXmlDocument(
     xmlDocument: XMLDocument | undefined
-  ): SMSComponentInterface | undefined {
-    if (!xmlDocument) {
-      return undefined;
-    }
-
-    const componentStreams =
-      xmlDocument.getElementsByTagName('ComponentStream');
-    if (!(componentStreams.length >= 7)) {
-      return undefined;
-    }
-    const componentNode = componentStreams.item(6);
-    if (!componentNode) {
-      return undefined;
-    }
-
-    const componentId: string | null =
-      componentNode.getAttribute('componentId');
-    if (componentId === null) {
-      return undefined;
-    }
-    const out: SMSComponentInterface = {
-      componentId: componentId,
-      categories: [],
+  ): SMSProcessedFileInterface | undefined {
+    const out: SMSProcessedFileInterface = {
+      header: { data: [] },
+      devices: [],
     };
-    out.component = componentNode.getAttribute('component') ?? undefined;
-    out.name = componentNode.getAttribute('name') ?? undefined;
 
-    for (const category of ['Samples', 'Events', 'Condition']) {
-      // Condition is singular
-      const values: SMSDataItemInterface[] = [];
-      const childElements = componentNode.querySelector(category)?.children;
-      if (!childElements) {
-        continue;
-      }
+    const liveDevices: HTMLCollection | undefined = xmlDocument?.querySelector(
+      'MTConnectStreams > Streams'
+    )?.children;
+    if (!liveDevices) return undefined;
+    const deviceElements: Element[] = Array.from(liveDevices);
 
-      const length = childElements.length; // assign for performance
-      for (let i = 0; i < length; i++) {
-        values.push(SMSDataItemInterface.fromElement(childElements[i]));
+    for (const deviceElement of deviceElements) {
+      const device: SMSDeviceInterface = { components: [] };
+      if (deviceElement.tagName != 'DeviceStream') continue;
+      device.name = deviceElement.getAttribute('name') ?? undefined;
+      device.uuid = deviceElement.getAttribute('uuid') ?? undefined;
+
+      const liveComponents: HTMLCollection | undefined =
+        deviceElement?.children;
+      if (!liveComponents) return undefined;
+      const componentElements: Element[] = Array.from(liveComponents);
+
+      for (const componentElement of componentElements) {
+        if (componentElement.tagName !== 'ComponentSteam') continue;
+        const componentId: string | null =
+          componentElement.getAttribute('componentId');
+        if (!componentId) continue;
+        const component: SMSComponentInterface = {
+          componentId: componentId,
+          categories: [],
+        };
+
+        for (const category of ['Samples', 'Events', 'Condition']) {
+          // Condition is singular
+          const values: SMSDataItemInterface[] = [];
+          const childElements = componentElement.querySelector(category)?.children;
+          if (!childElements) {
+            continue;
+          }
+
+          const length = childElements.length; // assign for performance
+          for (let i = 0; i < length; i++) {
+            values.push(SMSDataItemInterface.fromElement(childElements[i]));
+          }
+
+          component.categories.push({
+            name: category,
+            values: values,
+          });
+        }
+        device.components.push(component);
       }
-      out.categories.push({
-        name: category,
-        values: values,
-      });
+      out.devices.push(device);
+    }
+    return out;
+  }
+
+  openDeviceComponent(
+    device: SMSDeviceInterface,
+    component: SMSComponentInterface
+  ) {
+    console.log('component', component);
+    this.selectedComponentEventsIterate = [];
+    this.selectedComponentConditionIterate = [];
+    this.selectedComponentConditionIterate = [];
+    this.selectedDeviceName = device.name;
+    this.selectedComponentName = component.name;
+    component.categories.forEach(category => {
+      if (category.name === 'Samples' && category.values.length > 0) {
+        this.selectedComponentSamples = category.values;
+      } else if (category.name === 'Events' && category.values.length > 0) {
+        this.selectedComponentEvents = category.values;
+      } else if (category.name === 'Condition' && category.values.length > 0) {
+        this.selectedComponentCondition = category.values;
+      }
+    });
+    // for event
+    if (this.selectedComponentEvents) {
+      const evilResponseProps = Object.keys(this.selectedComponentEvents);
+      this.selectedComponentEventsIterate = [];
+      for (const prop of evilResponseProps) {
+        this.selectedComponentEventsIterate.push(
+          this.selectedComponentEvents[prop]
+        );
+      }
     }
 
-    return out;
+    // for sample
+    if (this.selectedComponentSamples) {
+      const evilResponseProps1 = Object.keys(this.selectedComponentSamples);
+      this.selectedComponentSamplesIterate = [];
+      for (const prop of evilResponseProps1) {
+        this.selectedComponentSamplesIterate.push(
+          this.selectedComponentSamples[prop]
+        );
+      }
+    }
+
+    // for condition
+    if (this.selectedComponentCondition) {
+      const evilResponseProps2 = Object.keys(this.selectedComponentCondition);
+      this.selectedComponentConditionIterate = [];
+      for (const prop of evilResponseProps2) {
+        this.selectedComponentConditionIterate.push(
+          this.selectedComponentCondition[prop]
+        );
+      }
+    }
+
+    console.log('goodResponse', this.selectedComponentEventsIterate);
+    console.log('goodResponse1', this.selectedComponentSamplesIterate);
+    console.log('goodResponse2', this.selectedComponentConditionIterate);
   }
 }

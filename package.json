@@ -28,7 +28,6 @@
     "@angular/router": "^17.2.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "xml2js": "^0.6.2",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
@@ -42,7 +41,6 @@
     "@angular/compiler-cli": "^17.2.2",
     "@compodoc/compodoc": "^1.1.23",
     "@types/jasmine": "~5.1.0",
-    "@types/xml2js": "^0.4.14",
     "@typescript-eslint/eslint-plugin": "6.19.0",
     "@typescript-eslint/parser": "6.19.0",
     "eslint": "^8.56.0",
