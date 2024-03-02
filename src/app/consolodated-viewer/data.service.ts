@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, throwError } from 'rxjs';
@@ -7,10 +6,6 @@ import { catchError, map, throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class DataService {
-  currentURL: string = '/assets/test-data/current.xml';
-  sampleURL: string = '/assets/test-data/sample.xml';
-  countURL: string = '/assets/test-data/big-sample.xml'; // count=10000
-
   constructor(private httpClient: HttpClient) {}
 
   getData(sourceUrl: string) {
@@ -36,6 +31,8 @@ export class DataService {
       );
     }
     // Return an observable with a user-facing error message
-    return throwError('Something bad happened; please try again later.');
+    return throwError(() =>
+      Error('Something bad happened; please try again later.')
+    );
   }
 }
