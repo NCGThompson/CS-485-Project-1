@@ -1,0 +1,20 @@
+.bg-main {
+  background-color: antiquewhite;
+  padding: 20px;
+}
+.btn-header {
+  background: transparent;
+  border: none;
+  color: black;
+  padding: 5px 15px;
+  border-radius: 10px;
+}
+.btn-header:hover {
+  background: rgb(168, 145, 145);
+color: rgb(69, 55, 55);
+}
+
+.active {
+  background: rgb(168, 145, 145);
+  color: rgb(69, 55, 55);
+}
