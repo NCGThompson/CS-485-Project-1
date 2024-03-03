@@ -35,11 +35,13 @@ describe('AppComponent', () => {
     ).toContain('Current Data');
   });
 
-  it('should render "Nist Data"', () => {
+  it('should render hidden "current-data-tab works!"', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('p')?.textContent).toContain('Nist Data');
+    expect(compiled.querySelector('p')?.textContent).toEqual(
+      'current-data-tab works!'
+    );
   });
 
   it('should NOT INITIALLY render "samples-tab works!"', () => {
