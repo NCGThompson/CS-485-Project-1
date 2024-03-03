@@ -1,13 +1,30 @@
 <div class="container-fluid bg-main">
   <div class="row">
-   <div class="col-md-3">
-     <button class="btn-header" (click)="openAnotherPage('/')" [ngClass]="{'active': currentPage =='/current'}">Current Data</button>
-   </div>
-   <div class="col-md-3">
-    <button class="btn-header" (click)="openAnotherPage('/sample')" [ngClass]="{'active': currentPage=='/sample'}">View Sample</button>
-  </div>
-  <div class="col-md-3">
-    <button class="btn-header" (click)="openAnotherPage('/setting')" [ngClass]="{'active': currentPage =='/setting'}">Setting</button>
-  </div>
+    <div class="col-md-3">
+      <button
+        class="btn-header"
+        (click)="openAnotherPage('/')"
+        [ngClass]="{ active: currentPage === '/current' }">
+        Current Data
+      </button>
+    </div>
+
+    <div class="col-md-3">
+      <button
+        class="btn-header"
+        (click)="openAnotherPage('/sample')"
+        [ngClass]="{ active: currentPage === '/sample' }">
+        View Sample
+      </button>
+    </div>
+
+    <div class="col-md-3">
+      <button
+        class="btn-header"
+        (click)="openAnotherPage('/setting')"
+        [ngClass]="{ active: currentPage === '/setting' }">
+        Setting
+      </button>
+    </div>
   </div>
 </div>

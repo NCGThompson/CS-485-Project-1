@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, Event as RouterEvent } from '@angular/router';
 import { filter } from 'rxjs';
 
 @Component({
@@ -8,29 +8,28 @@ import { filter } from 'rxjs';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-
-  currentPage:string = 'current'
+  currentPage: string = 'current';
   constructor(private router: Router) {
     router.events
-      .pipe(filter((event: any) => event instanceof NavigationEnd))
-      .subscribe((event) => {
-        if (event instanceof NavigationEnd) {
-          this.router.navigated = false;
-        }
+      .pipe(
+        filter(
+          (event: RouterEvent): event is NavigationEnd =>
+            event instanceof NavigationEnd
+        )
+      )
+      .subscribe((event: NavigationEnd) => {
         console.log(event.url);
-        if (event.url == "/") {
-          this.currentPage = '/current'
+        if (event.url == '/') {
+          this.currentPage = '/current';
         } else {
-          this.currentPage = event.url
+          this.currentPage = event.url;
         }
       });
   }
-  openAnotherPage(page:string) {
-    this.router.navigateByUrl(page)
-
-
+  openAnotherPage(page: string) {
+    this.router.navigateByUrl(page);
   }
 }
