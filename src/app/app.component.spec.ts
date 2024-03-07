@@ -30,9 +30,9 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(
-      compiled.querySelector('.mdc-tab__text-label')?.textContent
-    ).toContain('Current Data');
+    expect(compiled.querySelector('button')?.textContent).toContain(
+      'Current Data'
+    );
   });
 
   it('should render hidden "current-data-tab works!"', () => {

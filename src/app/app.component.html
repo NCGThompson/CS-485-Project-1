@@ -1,7 +1,10 @@
 <!doctype html>
 <html>
   <body>
-    <app-header></app-header>
+    <app-header
+      [(tabSelected)]="tabSelected"
+      [tabArray]="tabArray"></app-header>
+
     <router-outlet></router-outlet>
   </body>
 </html>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NavigationEnd, Router, Event as RouterEvent } from '@angular/router';
 import { filter } from 'rxjs';
 
@@ -11,7 +11,10 @@ import { filter } from 'rxjs';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  currentPage: string = 'current';
+  @Input() tabArray!: { label?: string; url?: string }[];
+  @Input() tabSelected: number | undefined;
+  @Output() tabSelectedChange: EventEmitter<number> = new EventEmitter();
+
   constructor(private router: Router) {
     router.events
       .pipe(
@@ -22,14 +25,14 @@ export class HeaderComponent {
       )
       .subscribe((event: NavigationEnd) => {
         console.log(event.url);
-        if (event.url == '/') {
-          this.currentPage = '/current';
-        } else {
-          this.currentPage = event.url;
-        }
       });
   }
-  openAnotherPage(page: string) {
+
+  openAnotherPage(index: number) {
+    this.tabSelected = index;
+    this.tabSelectedChange.emit(this.tabSelected);
+
+    const page: string = this.tabArray[index]?.url || '/';
     this.router.navigateByUrl(page);
   }
 }

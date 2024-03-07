@@ -11,5 +11,12 @@ import { HeaderComponent } from './header/header.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  tabSelected: number = 0;
+  tabArray: { label?: string; url?: string }[] = [
+    { label: 'Current Data', url: '/' },
+    { label: 'View Sample', url: '/sample' },
+    { label: 'Settings', url: '/setting' },
+  ];
+
   title = 'Project-1';
 }
