@@ -19,6 +19,7 @@ import {
   from,
   filter,
   mergeMap,
+  startWith,
 } from 'rxjs';
 import { XmlDomDisplayComponent } from '../xml-dom-display/xml-dom-display.component';
 
@@ -40,6 +41,7 @@ export class ConsolodatedViewerComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.intervalSub = interval(1000)
       .pipe(
+        startWith(0),
         // This use of concatMap will delay updates until
         // any current downloads are already complete.
         // After 30 seconds it will give up and try again.

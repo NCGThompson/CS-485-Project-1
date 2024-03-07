@@ -5,6 +5,7 @@
       [(tabSelected)]="tabSelected"
       [tabArray]="tabArray"></app-header>
 
-    <router-outlet></router-outlet>
+    <ng-template
+      [cdkPortalOutlet]="tabArray[tabSelected].content"></ng-template>
   </body>
 </html>

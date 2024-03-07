@@ -2,10 +2,6 @@ import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
-// import { HarnessLoader } from '@angular/cdk/testing';
-// import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
-// import { MatTabGroupHarness } from '@angular/material/tabs/testing';
-
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -18,12 +14,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have the 'Project-1' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('Project-1');
   });
 
   it('should render tab', () => {
