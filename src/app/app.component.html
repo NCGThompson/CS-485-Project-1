@@ -1,11 +1,16 @@
 <!doctype html>
 <html>
   <body>
-    <app-header
-      [(tabSelected)]="tabSelected"
-      [tabArray]="tabArray"></app-header>
+    <app-header [(tabSelected)]="tabSelected" [tabArray]="tabArray" />
 
-    <ng-template
-      [cdkPortalOutlet]="tabArray[tabSelected].content"></ng-template>
+    <div [attr.hidden]="tabSelected === 0 ? null : ''">
+      <app-current-data-tab />
+    </div>
+    <div [attr.hidden]="tabSelected === 1 ? null : ''">
+      <app-samples-tab />
+    </div>
+    <div [attr.hidden]="tabSelected === 2 ? null : ''">
+      <app-settings-tab />
+    </div>
   </body>
 </html>

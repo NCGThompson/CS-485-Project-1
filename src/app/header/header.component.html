@@ -1,17 +1,14 @@
 <div class="container-fluid bg-main">
   <div class="row">
-    <!-- use an if inside a for so `$index` is accurate -->
-    @for (tab of tabArray; track tab.label) {
-      @if (tab.label !== null) {
-        <div class="col-md-3">
-          <button
-            class="btn-header"
-            (click)="openAnotherPage($index)"
-            [ngClass]="{ active: tabSelected === $index }">
-            {{ tab.label }}
-          </button>
-        </div>
-      }
+    @for (tab of tabArray; track tab) {
+      <div class="col-md-3">
+        <button
+          class="btn-header"
+          (click)="openAnotherPage($index)"
+          [ngClass]="{ active: tabSelected === $index }">
+          {{ tab }}
+        </button>
+      </div>
     }
   </div>
 </div>

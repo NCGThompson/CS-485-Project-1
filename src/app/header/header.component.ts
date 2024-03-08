@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  @Input() tabArray!: { label?: string; url?: string }[];
+  @Input() tabArray!: string[];
   @Input() tabSelected: number | undefined;
   @Output() tabSelectedChange: EventEmitter<number> = new EventEmitter();
 
