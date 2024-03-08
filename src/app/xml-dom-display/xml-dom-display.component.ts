@@ -1,5 +1,4 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import {
   SMSComponentInterface,
@@ -7,12 +6,11 @@ import {
   SMSDeviceInterface,
   SMSProcessedFileInterface,
 } from '../sms-interfaces/sms-interfaces';
-import { ComponentDisplayComponent } from '../component-display/component-display.component';
 
 @Component({
   selector: 'app-xml-dom-display',
   standalone: true,
-  imports: [ComponentDisplayComponent, CommonModule],
+  imports: [],
   templateUrl: './xml-dom-display.component.html',
   styleUrl: './xml-dom-display.component.css',
 })

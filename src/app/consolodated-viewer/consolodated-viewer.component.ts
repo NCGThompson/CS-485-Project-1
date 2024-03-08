@@ -8,7 +8,6 @@ import {
   ElementRef,
 } from '@angular/core';
 import { DataService } from './data.service';
-import { KeyValuePipe } from '@angular/common';
 import {
   Subscription,
   interval,
@@ -26,7 +25,7 @@ import { XmlDomDisplayComponent } from '../xml-dom-display/xml-dom-display.compo
 @Component({
   selector: 'app-consolodated-viewer',
   standalone: true,
-  imports: [HttpClientModule, KeyValuePipe, XmlDomDisplayComponent],
+  imports: [HttpClientModule, XmlDomDisplayComponent],
   providers: [DataService, HttpClient],
   templateUrl: './consolodated-viewer.component.html',
 })
@@ -53,7 +52,7 @@ export class ConsolodatedViewerComponent implements OnInit, OnDestroy {
               this.dataService.getData(this.sourceUrl).pipe(
                 timeout(30000),
                 catchError(() => {
-                  console.error('Request timed out, retrying...');
+                  console.warn('Request timed out, retrying...');
                   return of(null);
                 })
               )
